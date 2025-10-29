@@ -15,3 +15,4 @@ public class list_of_sound_effects_used : MonoBehaviour
     }
 }
 // the exspolsion effect is from pixabay  made by sound reality, the wilhelm screem is from the same site by freesound_community
+//beachbowl Galaxy owned by nintendo (I didn't have time or headset to get something)
