@@ -7,11 +7,9 @@ public class musicPause : MonoBehaviour
     
     void Start()
     {
-        AudioSource music = musicCube.GetComponent<AudioSource>();
-        AudioSource SFX1 = SFXCube1.GetComponent<AudioSource>();
-        AudioSource SFX2 = SFXCube2.GetComponent<AudioSource>();
-        SFX1.Stop();
-        SFX2.Stop();
+        music = musicCube.GetComponent<AudioSource>();
+        SFX1 = SFXCube1.GetComponent<AudioSource>();
+        SFX2 = SFXCube2.GetComponent<AudioSource>();
         music.Play();
     }
 
@@ -29,25 +27,38 @@ public class musicPause : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        AudioSource music = musicCube.GetComponent<AudioSource>();
+        
         if (other.gameObject.CompareTag("off"))
         {
             music.Pause();
         }
         if (other.gameObject.CompareTag("SFX1"))
         {
-            SFX1.Play();
+            SFXCube1.SetActive(true);
+            
         }
         if (other.gameObject.CompareTag("SFX2"))
         {
-            SFX2.Play();
+            SFXCube2.SetActive(true);
+            
         }
     }
     private void OnTriggerExit(Collider other)
     {
+        
         if (other.gameObject.CompareTag("off"))
         {
             music.UnPause();
+        }
+        if (other.gameObject.CompareTag("SFX1"))
+        {
+            SFXCube1.SetActive(false);
+
+        }
+        if (other.gameObject.CompareTag("SFX2"))
+        {
+            SFXCube2.SetActive(false);
+
         }
     }
 }
