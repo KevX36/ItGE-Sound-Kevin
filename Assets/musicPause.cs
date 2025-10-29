@@ -4,6 +4,7 @@ using UnityEngine;
 public class musicPause : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //commented out code is stuff I tried while I had the SFXcubes set to the triggers instead of what the actual objects with sound attached
     
     void Start()
     {
@@ -11,6 +12,7 @@ public class musicPause : MonoBehaviour
         SFX1 = SFXCube1.GetComponent<AudioSource>();
         SFX2 = SFXCube2.GetComponent<AudioSource>();
         music.Play();
+
     }
 
     public GameObject musicCube;
@@ -34,13 +36,13 @@ public class musicPause : MonoBehaviour
         }
         if (other.gameObject.CompareTag("SFX1"))
         {
-            SFXCube1.SetActive(true);
-            
+            //SFXCube1.gameObject.SetActive(true);
+            SFX1.Play();
         }
         if (other.gameObject.CompareTag("SFX2"))
         {
-            SFXCube2.SetActive(true);
-            
+            //SFXCube1.gameObject.SetActive(true);
+            SFX2.Play();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -50,15 +52,15 @@ public class musicPause : MonoBehaviour
         {
             music.UnPause();
         }
-        if (other.gameObject.CompareTag("SFX1"))
-        {
-            SFXCube1.SetActive(false);
+        //if (other.gameObject.CompareTag("SFX1"))
+        //{
+            //SFXCube1.gameObject.SetActive(false);
 
-        }
-        if (other.gameObject.CompareTag("SFX2"))
-        {
-            SFXCube2.SetActive(false);
+        //}
+        //if (other.gameObject.CompareTag("SFX2"))
+        //{
+            //SFXCube2.gameObject.SetActive(false);
 
-        }
+        //}
     }
 }
